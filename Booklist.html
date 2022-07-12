@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block body %}    
+<div > 
+    <h2 align = "center"> BOOK LIST</h2>
+    <table class="table table-dark table-stripped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Book Name</th>
+                <th>Book Status</th>
+                <th>Book Issue Date</th>
+                <th colspan="3" >Actions</th>
+            </tr>
+        </thead>
+<tbody>
+    {% for book in booklist %}
+        <tr>
+            <td>{{book.bookid}}</td>
+            <td>{{book.bookname}}</td>
+            <td>{{book.bookstatus}}</td>
+            <td>{{book.bookissuedate}}</td>
+            <td><a  href="editbook/{{book.bookid}}" class="btn btn-info">Edit Book </a></button></td>
+            <td><a onclick="return confirm('Are you sure you want to delete this record?') " href="deletebook/{{book.bookid}}" class="btn btn-danger">Delete book</a></button></td>
+            
+        </tr>
+    {% endfor %}
+</tbody>
+    </table>
+
+{% endblock body %}

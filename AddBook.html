@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container">
+
+    <h3> {{action}} Book form </h3>
+
+    {% if action=='Add' %}
+
+
+
+    <form action="/savebook" method="POST">
+
+        {% endif %}
+        {% if action=='Edit' %}
+
+
+
+        <form action="/updatebook" method="POST">
+
+
+            <div class="mb-3">
+
+                <label for="BookId" class="form-label">Book Id</label>
+                <input type="number" class="form-control" id="BookId" name="bookid" value="{{book.bookid}}" readonly>
+            </div>
+            {% endif %}
+
+            <div class="mb-3">
+                <label for="bookname" class="form-label">Book Name</label>
+                <input type="text" class="form-control" id="bookname" name="bookname" value="{{book.bookname}}">
+            </div>
+
+            <div class="mb-3">
+                <label for="bookstatus" class="form-label">Book Status</label>
+                <input type="text" class="form-control" id="bookstatus" name="bookstatus" value="{{book.bookstatus}}">
+            </div>
+
+
+            <div class="mb-3">
+                <label for="bookissuedate" class="form-label">Book Issue Date</label>
+                <input type="date" class="form-control" id="bookissuedate" name="bookissuedate"
+                    value="{{book.bookissuedate}}">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+</div>
+{% endblock body %}
